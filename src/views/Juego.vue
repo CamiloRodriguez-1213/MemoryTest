@@ -5,72 +5,68 @@
                 <div class="col-2">
                     <div class="row">
                     <div class="col"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class="fa fa-home"></i>
+                <i class="fa fa-bars"></i>
 </button></div>
                     
                 </div>
                 </div>
                 <div class="col">
-                    <div class="row mt-3 bg-primary">
+                    <div class="row mt-3">
                     <div class="col"><small>Movimientos</small></div>
                     <div class="col">{{con}}</div>
                 </div>
                 </div>
                 <div class="col">
-                    <div class="row mt-3 bg-primary">
+                    <div class="row mt-3">
                     <div class="col"><small>Puntos</small></div>
                     <div class="col">{{cont*100}}</div>
                 </div>
                 </div>
         </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Pausa</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" >
+          <div class="modal-content">
+            <div class="modal-header" >
+              <h5 class="modal-title" id="exampleModalLabel" >Pausa</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="$router.push('/')"> <i class="fa fa-home"></i></button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="volver"><i class="fa fa-arrow-left"></i></button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="$router.push('/Cantidad')"><i class="fa fa-refresh"></i></button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="$router.push('/')">Casa</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="volver">Volver</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="$router.push('/Cantidad')">Again</button>
-      </div>
-    </div>
-  </div>
-</div>
 <div style="height:150px"></div>
         <div class="row mx-0" v-if="ocultar">
             <div v-for="(imagen,indice) in imagenesmos.slice(0,(filas*columnas)/2)"  :key="imagen.id" class="col-3 color">
-              <img :src="imagen" class="color" style="width:80px;height:80px;opacity:0" @click="seleccionar(indice)">
+              <img :src="imagen" class="color" style="width:100%;height:100%;opacity:0" @click="seleccionar(indice)">
         </div>
         <div v-for="(imagen,indice) in imagenesmos.slice(0,(filas*columnas)/2)"  :key="imagen.id" class="col-3 color">
-              <img :src="imagen" class="color" style="width:80px;height:80px;opacity:0" @click="seleccionar2(indice)">
+              <img :src="imagen" class="color" style="width:100%;height:100%;opacity:0" @click="seleccionar2(indice)">
         </div>
         </div>
 
-<div class="modal-dialog modal-dialog-centered" v-if="mostrar">
-    <div class="modal-content">
+<div class="modal-dialog modal-dialog-centered text-center" v-if="mostrar">
+    <div class="modal-content ">
       <div class="modal-header">
-        <h5 class="modal-title">Buen trabajo</h5>
+        <h5 class="modal-title ">Buen trabajo</h5>
       </div>
       <div class="modal-body">
         <p>Movimientos {{con}}</p>
-        <p>Puntos</p>{{cont}}
+        <p>Puntos</p>{{cont*100}}
         
       </div>
       <div class="modal-footer">
-            <button type="button" class="btn btn-primary" @click="$router.push('/Cantidad')">Reintentar</button>
-            <button type="button" class="btn btn-secondary" @click="$router.push('/')">Salir</button>
+            <button type="button" class="btn btn-secondary" @click="$router.push('/Cantidad')"><i class="fa fa-refresh"></i></button>
+            <button type="button" class="btn btn-secondary" @click="$router.push('/')"><i class="fa fa-home"></i></button>
         
       </div>
     </div>
   
 </div>
   
-<!-- Modal -->
-
-
-        
     </div>
 </template>
 <script>
@@ -132,7 +128,7 @@ export default{
     
     methods:{
         imagenes(){
-this.animales=[
+            this.animales=[
                 'https://i.ibb.co/stm7DFP/descarga-1.jpg',
                 'https://i.ibb.co/jz6qWzt/descarga-2.jpg',
                 'https://i.ibb.co/5TGgfF9/descarga-3.jpg',
@@ -282,12 +278,8 @@ this.animales=[
        volver(){
            this.mostrar=false
            this.ocultar=true
-       }
-        
+       }  
     },
-    
-
-   
 }
 </script>
 

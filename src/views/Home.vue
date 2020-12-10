@@ -4,7 +4,7 @@
         
     <div class="col-12 text-center">
       <br><br><br><br><br><br><br><br>
-      <h1>Memory <br>Test</h1>
+      <strong><h1>Memory <br>Test</h1></strong>
       <br><br><br><br>
     </div>
     
